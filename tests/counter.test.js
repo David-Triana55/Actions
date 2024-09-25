@@ -1,4 +1,4 @@
-import { setupCounter } from './counter.js';
+import { setupCounter } from '../counter.js';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('Counter Button', () => {
