@@ -1,32 +1,28 @@
-name: helloWold
+name: CI
 
-on: 
+on:
   push:
     branches:
       - main
-jobs:
-  setup-js:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v2
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
-      - name: run javascript
-        run: node index.js
+  pull_request:
+    branches:
+      - main
 
+jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout code
+      - name: Check out code
         uses: actions/checkout@v2
-      - name: setup node
+
+      - name: Set up Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 16
-      - name: run javascript
+          node-version: '16'
+
+      - name: Install dependencies
         run: npm install
-      - name: run tests
+
+      - name: Run tests
         run: npm test
