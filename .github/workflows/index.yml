@@ -1,0 +1,32 @@
+name: helloWold
+
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  setup-js:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: run javascript
+        run: node index.js
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: run javascript
+        run: npm install
+      - name: run tests
+        run: npm test
