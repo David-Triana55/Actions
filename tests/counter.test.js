@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/dom';
 import { setupCounter } from '../counter.js';
 import { beforeEach, describe, expect, it } from 'vitest';
 
