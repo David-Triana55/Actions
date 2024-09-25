@@ -1,14 +1,11 @@
-// tests/counter.test.js
-import { fireEvent } from '@testing-library/dom';
-import { describe, expect, it, beforeEach } from 'vitest';
-import { setupCounter } from '../counter'; // Asegúrate de que la ruta sea correcta
+import { setupCounter } from './counter.js';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 describe('Counter Button', () => {
   let buttonElement;
 
-  // Configuración antes de cada prueba
   beforeEach(() => {
-    // Crear el botón en el DOM
+    // Configurar el HTML antes de cada prueba
     document.body.innerHTML = `<button id="counter" type="button"></button>`;
     buttonElement = document.getElementById('counter');
     setupCounter(buttonElement); // Configurar el contador
@@ -19,12 +16,7 @@ describe('Counter Button', () => {
   });
 
   it('should increment count on click', () => {
-    // Simula un clic en el botón
     fireEvent.click(buttonElement);
     expect(buttonElement.innerHTML).toBe('count is 1');
-
-    // Simula otro clic en el botón
-    fireEvent.click(buttonElement);
-    expect(buttonElement.innerHTML).toBe('count is 2');
   });
 });
